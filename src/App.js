@@ -1,29 +1,62 @@
-import {BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import {createBrowserRouter,  Route,  createRoutesFromElements, RouterProvider } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout/>}>
+    <Route index element={<Home />} />
+    <Route path="/about" element={<About />}/>
+  </Route>
+  )
+)
+
 function App() {
   return (
-    <BrowserRouter>
-    <header>
-      <nav>
-        <h1>Job Router</h1>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-      </nav>
-    </header>
+   
+    // <header> element to act as a layout component for any routes nested inside it this layout will wrap the components inside it
+    //   <nav>
+    //     <h1>Job Router</h1>
+    //     <NavLink to="/">Home</NavLink>
+    //     <NavLink to="/about">About</NavLink>
+    //   </nav>
+    // </header>
       <main>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/about" element={<About />}/>
-        </Routes>
+       <RouterProvider router={router}/>
       </main>
-    </BrowserRouter>
+    
   );
 }
 
 export default App;
 
+// New Method
+
+/*
+import {createBrowserRouter, Routes, Route, NavLink, createRoutesFromElements, RouterProvier} from "react-router-dom";
+
+const routes = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+    <Route path="" element=""/>
+    </Route>
+  )
+)
+
+function App() {
+  return (
+    <main>
+    <RouterProvider router={router}/>
+    </main>
+  )
+}
+
+export default App
+
+*/
+
+// Older Method
 /*
 1st STEP
 

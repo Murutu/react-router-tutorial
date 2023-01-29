@@ -47,3 +47,10 @@ header nav a{
 header nav a.active {
   background: var(--primary);
 }
+
+/* PAGE CONTENT */
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
