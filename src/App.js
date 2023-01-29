@@ -1,4 +1,5 @@
 import {createBrowserRouter,  Route,  createRoutesFromElements, RouterProvider } from "react-router-dom";
+import HelpLayout from "./layouts/HelpLayout";
 import RootLayout from "./layouts/RootLayout";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -7,7 +8,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout/>}>
     <Route index element={<Home />} />
-    <Route path="/about" element={<About />}/>
+    <Route path="about" element={<About />}/>
+    <Route path="help" element={<HelpLayout/>}>
+      <Route path="faq"/>
+      <Route path="contact"/>
+    </Route>
   </Route>
   )
 )
@@ -34,15 +39,18 @@ export default App;
 // New Method
 
 /*
-import {createBrowserRouter, Routes, Route, NavLink, createRoutesFromElements, RouterProvier} from "react-router-dom";
+import {createBrowserRouter, Route, createRoutesFromElements, RouterProvider} from "react-router-dom";
 
-const routes = createBrowserRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-    <Route path="" element=""/>
-    </Route>
+    <Route path="/" element={<RootLayout />}/>
+    <Route index element={<Home />}/>
+    </Route path="about" element={<About/>}>
   )
 )
+
+inside our paths we no longer have to use the / bcz this path is relative to the RootLayout (parent)
 
 function App() {
   return (
