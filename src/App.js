@@ -8,7 +8,7 @@ function App() {
     <header>
       <nav>
         <h1>Job Router</h1>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
       </nav>
     </header>
@@ -55,9 +55,9 @@ function App() {
     <BrowserRouter>
     <header>
     <nav>
-    <h1>Job</h1>
-    <Link to="/">Home</Link>
-    <NavLink to="/about">About</NavLink>
+    <h1>Routes</h1>
+    <NavLink path="/">Home</NavLink>
+    <NavLink path="/about">About</NavLink>
     </nav>
     </header>
     <main>
